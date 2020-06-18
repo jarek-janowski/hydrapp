@@ -17,11 +17,10 @@ const counter = document.querySelector('.counter--js');
 const glasses = localStorage.getItem('glasses');
 
 
-if (localStorage.getItem(key) === false) {
-    counter.innerHTML = 0;
+if (glasses) {
+    counter.innerHTML = glasses;
 } else {
-    counter.innerHTML = glasses, count;
-
+    counter.innerHTML = count;
 }
 
 
@@ -38,6 +37,41 @@ remove.addEventListener('click', () => {
         count = count - 1;
         counter.innerHTML = count;
         localStorage.setItem('glasses', count);
-
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* add.addEventListener('click', () => {
+
+    count = count + 1;
+    counter.innerHTML = count;
+    localStorage.setItem('glasses', count);
+
+})
+
+remove.addEventListener('click', () => {
+    if (count < 0) {
+        count = 0;
+    } else {
+        count = count - 1;
+        counter.innerHTML = count;
+        localStorage.setItem('glasses', count);
+    }
+}) */
