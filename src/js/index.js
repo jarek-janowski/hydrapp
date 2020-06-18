@@ -19,6 +19,7 @@ const glasses = localStorage.getItem('glasses');
 
 if (glasses) {
     counter.innerHTML = glasses;
+    count = parseInt(glasses);
 } else {
     counter.innerHTML = count;
 }
