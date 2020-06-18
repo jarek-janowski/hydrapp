@@ -39,6 +39,10 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
   background: #3767AD;
   text-align: center;
   font-family: 'Roboto', sans-serif;
@@ -49,22 +53,25 @@ body {
 }
 
 .main {
+
+
   &__heading {
     position: relative;
-    margin: 24px 0 48px 0;
+    margin: 0 0 36px 0;
     color: #fff;
     font-size: 48px;
     font-weight: 500;
     line-height: 64px;
 
-    @media screen and (min-width:321px) {
-      font-size: 55px;
-      margin-bottom: 68px;
+    @media screen and(min-width: 360px) {
+      margin: 16px 0 64px;
     }
 
-    @media screen and (min-width:361px) {
-      margin-top: 73px;
+    @media screen and(min-height: 768px) {
+      font-size: 72px;
+      margin-bottom: 96px;
     }
+
   }
 
   &__image {
@@ -73,11 +80,16 @@ body {
 
   &__counter {
     position: absolute;
-    top: 12%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 112px;
+    font-size: 72px;
     font-weight: 600;
+    transition: color 2s ease;
+
+    &-animation--js {
+      color: red;
+    }
   }
 
   &__button {
@@ -85,7 +97,7 @@ body {
     margin: 0 auto;
 
     &--add {
-      margin: 48px auto 16px;
+      margin: 40px auto 24px;
       width: 216px;
       height: 47px;
       border-radius: 4px;
@@ -94,10 +106,13 @@ body {
       border: none;
       color: #000;
 
-      @media screen and (min-width:321px) {
-        margin-bottom: 37px;
+      @media screen and(min-width: 360px) {
+        margin-top: 64px;
       }
 
+      @media screen and(min-height: 768px) {
+        margin: 96px auto 32px;
+      }
     }
 
     &--remove {

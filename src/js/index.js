@@ -17,6 +17,7 @@ const counter = document.querySelector('.counter--js');
 const glasses = localStorage.getItem('glasses');
 
 
+
 if (glasses) {
     counter.innerHTML = glasses;
     count = parseInt(glasses);
@@ -26,9 +27,13 @@ if (glasses) {
 
 
 add.addEventListener('click', () => {
-    count = count + 1;
-    counter.innerHTML = count;
-    localStorage.setItem('glasses', count);
+    if (count >= 99) {
+        count = 99;
+    } else {
+        count = count + 1;
+        counter.innerHTML = count;
+        localStorage.setItem('glasses', count);
+    }
 })
 
 remove.addEventListener('click', () => {
