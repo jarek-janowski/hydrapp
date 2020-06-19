@@ -48,6 +48,42 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.languages {
+  &__button {
+    position: absolute;
+    top: 1%;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+
+    &--us {
+      right: 64px;
+    }
+  }
+
+  &__flag {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 1%;
+    right: 16px;
+    z-index: 1;
+
+    &--us {
+      right: 64px;
+    }
+  }
+}
+
+.main__en {
+  position: absolute;
+  left: 0;
+}
+
+
 .wrapper {
   position: relative;
 }
@@ -57,7 +93,7 @@ body {
 
   &__heading {
     position: relative;
-    margin: 0 0 36px 0;
+    margin: 16px 0 36px 0;
     color: #fff;
     font-size: 48px;
     font-weight: 500;

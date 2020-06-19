@@ -15,7 +15,19 @@ const key = new Date().toISOString().slice(0, 10);
 let count = 0;
 const counter = document.querySelector('.counter--js');
 const glasses = localStorage.getItem('glasses');
+const pl = document.querySelector('.languages__button--poland-js')
+const en = document.querySelector('.languages__button--us-js')
 
+
+en.addEventListener('click', () => {
+    add.innerHTML = "add glass";
+    remove.innerHTML = "remove glass";
+})
+
+pl.addEventListener('click', () => {
+    add.innerHTML = "dodaj szklankę";
+    remove.innerHTML = "usuń szklankę";
+})
 
 
 if (glasses) {
