@@ -18,6 +18,7 @@
   <!-- uncomment the line below to enable PWA  -->
   <link rel="manifest" href="manifest.json">
 
+
   <link rel="apple-touch-icon" sizes="180x180" href="pwa/apple-icon-180.png">
   <link rel="apple-touch-icon" sizes="167x167" href="pwa/apple-icon-167.png">
   <link rel="apple-touch-icon" sizes="152x152" href="pwa/apple-icon-152.png">
@@ -69,17 +70,20 @@
 </head>
 
 <body>
-  <nav class="languages">
-    <button class="languages__button languages__button--poland-js"></button>
-    <img class="languages__flag" src="../assets/img/pl flag.svg" alt="poland national flag">
-    <button class="languages__button languages__button--us languages__button--us-js"></button>
-    <img class="languages__flag languages__flag--us" src="../assets/img/us flag.svg" alt="united states national flag">
+  <nav class="navigation">
+    <button class="navigation__language navigation__language--poland-js"></button>
+    <img class="navigation__flag" src="../assets/img/pl-flag.svg" alt="poland national flag">
+    <button class="navigation__language navigation__language--us navigation__language--us-js"></button>
+    <img class="navigation__flag navigation__flag--us" src="../assets/img/us-flag.svg"
+      alt="united states national flag">
   </nav>
 
   <main class="main">
     <h1 class="main__heading">hydrapp</h1>
     <div class="wrapper">
-      <img class="main__image" src="../assets/img/water-glass.svg" alt="water glass">
+      <div class="main__image" id="animation" alt="water glass"></div>
+
+      <!-- <div class="shapeshifter play" style="background-image: url(../assets/img/sprite_60fps.svg)"></div> -->
       <p class="main__counter counter--js">1</p>
     </div>
     <button class="main__button main__button--add add--js">dodaj szklankę</button>

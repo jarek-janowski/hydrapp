@@ -28,6 +28,16 @@
   }
 }
 
+@keyframes play60 {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: -16800px 0px;
+  }
+}
+
 html {
   box-sizing: border-box;
 }
@@ -48,41 +58,61 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.languages {
-  &__button {
+.navigation {
+  position: absolute;
+  width: 100%;
+  height: 32px;
+  background: #325486;
+  top: 0;
+  left: 0;
+
+  &__language {
     position: absolute;
     top: 1%;
-    right: 16px;
-    width: 32px;
-    height: 32px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
     z-index: 2;
     opacity: 0;
     cursor: pointer;
 
+    @media screen and(min-width: 321px) {
+      width: 32px;
+      height: 32px;
+    }
+
     &--us {
-      right: 64px;
+      right: 40px;
+
+      @media screen and(min-width: 321px) {
+        right: 48px;
+      }
     }
   }
 
   &__flag {
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     top: 1%;
-    right: 16px;
+    right: 8px;
     z-index: 1;
 
+    @media screen and(min-width: 321px) {
+      width: 32px;
+      height: 32px;
+    }
+
+
     &--us {
-      right: 64px;
+      right: 40px;
+
+      @media screen and(min-width: 321px) {
+        right: 48px;
+      }
     }
   }
 }
-
-.main__en {
-  position: absolute;
-  left: 0;
-}
-
 
 .wrapper {
   position: relative;
@@ -99,7 +129,7 @@ body {
     font-weight: 500;
     line-height: 64px;
 
-    @media screen and(min-width: 360px) {
+    @media screen and(min-width: 361px) {
       margin: 16px 0 64px;
     }
 
@@ -111,12 +141,21 @@ body {
   }
 
   &__image {
-    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    background-image: url(../assets/img/water-glass.svg);
+    animation-duration: 1000ms;
+    animation-timing-function: steps(60);
+    width: 280px;
+    height: 280px;
+    background-repeat: no-repeat;
+
+    &--play {
+      animation-name: play60;
+    }
   }
 
   &__counter {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 72px;
@@ -142,7 +181,7 @@ body {
       border: none;
       color: #000;
 
-      @media screen and(min-width: 360px) {
+      @media screen and(min-width: 361px) {
         margin-top: 64px;
       }
 
@@ -157,5 +196,15 @@ body {
       font-size: 14px;
       color: #F5E5E7;
     }
+  }
+}
+
+@keyframes play60 {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: -16800px 0px;
   }
 }

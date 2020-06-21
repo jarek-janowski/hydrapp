@@ -15,8 +15,9 @@ const key = new Date().toISOString().slice(0, 10);
 let count = 0;
 const counter = document.querySelector('.counter--js');
 const glasses = localStorage.getItem('glasses');
-const pl = document.querySelector('.languages__button--poland-js')
-const en = document.querySelector('.languages__button--us-js')
+const pl = document.querySelector('.navigation__language--poland-js');
+const en = document.querySelector('.navigation__language--us-js');
+
 
 
 en.addEventListener('click', () => {
@@ -45,6 +46,8 @@ add.addEventListener('click', () => {
         count = count + 1;
         counter.innerHTML = count;
         localStorage.setItem('glasses', count);
+        const animation = document.getElementById('animation');
+        animation.classList.add("main__image--play");
     }
 })
 
