@@ -141,6 +141,7 @@ body {
   }
 
   &__image {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     background-image: url(../assets/img/water-glass.svg);
     animation-duration: 1000ms;
     animation-timing-function: steps(60);
