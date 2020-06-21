@@ -144,6 +144,7 @@ body {
     background-image: url(../assets/img/water-glass.svg);
     animation-duration: 1000ms;
     animation-timing-function: steps(60);
+    animation-fill-mode: forwards;
     width: 280px;
     height: 280px;
     background-repeat: no-repeat;
