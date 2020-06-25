@@ -31,22 +31,16 @@ pl.addEventListener('click', () => {
 })
 
 
-// if (glasses) {
-//     counter.innerHTML = glasses;
-//     count = parseInt(glasses);
-// } else {
-//     counter.innerHTML = count;
-// }
-
-if (localStorageValue) {
+if (localStorageValue > 0) {
     count = parseInt(localStorageValue);
+    let water = document.querySelector('.water--js');
+    water.classList.add('water-animation-add');
+
 } else {
     localStorage.setItem(key, 0);
 }
 
 counter.innerHTML = count;
-
-
 
 
 add.addEventListener('click', () => {
@@ -56,26 +50,35 @@ add.addEventListener('click', () => {
         count = count + 1;
         counter.innerHTML = count;
         localStorage.setItem(key, count);
-        let animation = document.querySelector('.main__animation');
-        animation.classList.remove('main__image--emptying');
-        animation.classList.add('main__image--filling');
-        let newone = animation.cloneNode(true);
-        animation.parentNode.replaceChild(newone, animation);
+        let water = document.querySelector('.water--js');
+        water.classList.remove('water-animation-disappear')
+        water.classList.remove('water-animation-remove');
+        water.classList.add('water-animation-add');
+        let newone = water.cloneNode(true);
+        water.parentNode.replaceChild(newone, water);
     }
 })
 
 remove.addEventListener('click', () => {
-    if (count <= 0) {
-        count = 0;
-    } else {
+    if (count > 0) {
         count = count - 1;
         counter.innerHTML = count;
         localStorage.setItem(key, count);
-        let animation = document.querySelector('.main__animation');
-        animation.classList.remove('main__image--filling');
-        animation.classList.add('main__image--emptying');
-        let newone = animation.cloneNode(true);
-        animation.parentNode.replaceChild(newone, animation);
+        if (count == 0) {
+            count = 0;
+            let water = document.querySelector('.water--js');
+            water.classList.remove('water-animation-add');
+            water.classList.remove('water-animation-remove');
+            water.classList.add('water-animation-disappear')
+        } else {
+
+            let water = document.querySelector('.water--js');
+            water.classList.remove('water-animation-disappear')
+            water.classList.remove('water-animation-add');
+            water.classList.add('water-animation-remove');
+            let newone = water.cloneNode(true);
+            water.parentNode.replaceChild(newone, water);
+        }
     }
 })
 
