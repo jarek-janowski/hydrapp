@@ -28,9 +28,19 @@
   }
 }
 
-@keyframes play60 {
+@keyframes filling {
   0% {
     background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: -16800px 0px;
+  }
+}
+
+@keyframes emptying {
+  0% {
+    background-position: -16800px 0px;
   }
 
   100% {
@@ -151,8 +161,12 @@ body {
     height: 280px;
     background-repeat: no-repeat;
 
-    &--play {
-      animation-name: play60;
+    &--filling {
+      animation-name: filling;
+    }
+
+    &--emptying {
+      animation-name: emptying;
     }
   }
 

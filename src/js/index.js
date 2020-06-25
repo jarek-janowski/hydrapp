@@ -14,11 +14,11 @@ const remove = document.querySelector('.remove--js');
 const key = new Date().toISOString().slice(0, 10);
 let count = 0;
 const counter = document.querySelector('.counter--js');
-const glasses = localStorage.getItem('glasses');
+// const glasses = localStorage.getItem('glasses');
 const pl = document.querySelector('.navigation__language--poland-js');
 const en = document.querySelector('.navigation__language--us-js');
 
-
+const localStorageValue = localStorage.getItem(key);
 
 en.addEventListener('click', () => {
     add.innerHTML = "add glass";
@@ -31,12 +31,22 @@ pl.addEventListener('click', () => {
 })
 
 
-if (glasses) {
-    counter.innerHTML = glasses;
-    count = parseInt(glasses);
+// if (glasses) {
+//     counter.innerHTML = glasses;
+//     count = parseInt(glasses);
+// } else {
+//     counter.innerHTML = count;
+// }
+
+if (localStorageValue) {
+    count = parseInt(localStorageValue);
 } else {
-    counter.innerHTML = count;
+    localStorage.setItem(key, 0);
 }
+
+counter.innerHTML = count;
+
+
 
 
 add.addEventListener('click', () => {
@@ -45,9 +55,12 @@ add.addEventListener('click', () => {
     } else {
         count = count + 1;
         counter.innerHTML = count;
-        localStorage.setItem('glasses', count);
-        const animation = document.getElementById('animation');
-        animation.classList.add("main__image--play");
+        localStorage.setItem(key, count);
+        let animation = document.querySelector('.main__animation');
+        animation.classList.remove('main__image--emptying');
+        animation.classList.add('main__image--filling');
+        let newone = animation.cloneNode(true);
+        animation.parentNode.replaceChild(newone, animation);
     }
 })
 
@@ -57,7 +70,12 @@ remove.addEventListener('click', () => {
     } else {
         count = count - 1;
         counter.innerHTML = count;
-        localStorage.setItem('glasses', count);
+        localStorage.setItem(key, count);
+        let animation = document.querySelector('.main__animation');
+        animation.classList.remove('main__image--filling');
+        animation.classList.add('main__image--emptying');
+        let newone = animation.cloneNode(true);
+        animation.parentNode.replaceChild(newone, animation);
     }
 })
 
