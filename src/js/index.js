@@ -42,10 +42,9 @@ if (localStorageValue > 0) {
 
 counter.innerHTML = count;
 
-
 add.addEventListener('click', () => {
     if (count >= 99) {
-        count = 99;
+        count == 99;
     } else {
         count = count + 1;
         counter.innerHTML = count;
@@ -57,7 +56,16 @@ add.addEventListener('click', () => {
         let newone = water.cloneNode(true);
         water.parentNode.replaceChild(newone, water);
     }
+    if (count == 10) {
+        const shake = document.querySelector('.main__image');
+        const congratulations = document.querySelector('.main__congratulations--js');
+        shake.classList.add('main__image--shake')
+        congratulations.classList.add('main__congratulations--show');
+    }
+
 })
+
+
 
 remove.addEventListener('click', () => {
     if (count > 0) {
@@ -80,40 +88,10 @@ remove.addEventListener('click', () => {
             water.parentNode.replaceChild(newone, water);
         }
     }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* add.addEventListener('click', () => {
-
-    count = count + 1;
-    counter.innerHTML = count;
-    localStorage.setItem('glasses', count);
-
-})
-
-remove.addEventListener('click', () => {
-    if (count < 0) {
-        count = 0;
-    } else {
-        count = count - 1;
-        counter.innerHTML = count;
-        localStorage.setItem('glasses', count);
+    if (count < 10) {
+        const shake = document.querySelector('.main__image');
+        const congratulations = document.querySelector('.main__congratulations--js');
+        shake.classList.remove('main__image--shake')
+        congratulations.classList.remove('main__congratulations--show');
     }
-}) */
+})
