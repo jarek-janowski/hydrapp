@@ -14,22 +14,44 @@ const remove = document.querySelector('.remove--js');
 const key = new Date().toISOString().slice(0, 10);
 let count = 0;
 const counter = document.querySelector('.counter--js');
-// const glasses = localStorage.getItem('glasses');
 const pl = document.querySelector('.navigation__language--poland-js');
 const en = document.querySelector('.navigation__language--us-js');
 const congratulations = document.querySelector('.main__congratulations--js');
 
 const localStorageValue = localStorage.getItem(key);
+const localStorageAdd = localStorage.getItem('add');
+const localStorageRemove = localStorage.getItem('remove');
+const localStorageCongratulations = localStorage.getItem('congratulations');
+
 
 en.addEventListener('click', () => {
     add.innerHTML = "add glass";
     remove.innerHTML = "remove glass";
+    congratulations.innerHTML = "You've drunk daily dose of water!";
+    localStorage.setItem('add', 'add glass');
+    localStorage.setItem('remove', 'remove glass');
+    localStorage.setItem('congratulations', `You've drunk daily dose of water!`);
 })
 
 pl.addEventListener('click', () => {
     add.innerHTML = "dodaj szklankę";
     remove.innerHTML = "usuń szklankę";
+    congratulations.innerHTML = "Wypiłeś(aś) dzienną dawkę wody!";
+    localStorage.setItem('add', 'dodaj szklankę');
+    localStorage.setItem('remove', 'usuń szklankę');
+    localStorage.setItem('congratulations', 'Wypiłeś(aś) dzienną dawkę wody!');
+
 })
+
+if (localStorageAdd, localStorageRemove, localStorageCongratulations) {
+    add.innerHTML = localStorageAdd;
+    remove.innerHTML = localStorageRemove;
+    congratulations.innerHTML = localStorageCongratulations;
+} else {
+    add.innerHTML = "dodaj szklankę";
+    remove.innerHTML = "usuń szklankę";
+    congratulations.innerHTML = "Wypiłeś(aś) dzienną dawkę wody!";
+}
 
 
 if (localStorageValue > 0) {
@@ -68,11 +90,7 @@ add.addEventListener('click', () => {
         shake.classList.add('main__image--shake')
         congratulations.classList.add('main__congratulations--show');
     }
-
-
 })
-
-
 
 remove.addEventListener('click', () => {
     if (count > 0) {

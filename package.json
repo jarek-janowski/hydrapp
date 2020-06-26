@@ -44,7 +44,6 @@
     "websocket-extensions": "^0.1.4"
   },
   "dependencies": {
-    "confetti-js": "0.0.18",
     "normalize.css": "^8.0.1"
   }
 }
