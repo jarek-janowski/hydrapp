@@ -17,6 +17,7 @@ const counter = document.querySelector('.counter--js');
 // const glasses = localStorage.getItem('glasses');
 const pl = document.querySelector('.navigation__language--poland-js');
 const en = document.querySelector('.navigation__language--us-js');
+const congratulations = document.querySelector('.main__congratulations--js');
 
 const localStorageValue = localStorage.getItem(key);
 
@@ -42,6 +43,12 @@ if (localStorageValue > 0) {
 
 counter.innerHTML = count;
 
+
+if (count >= 10) {
+    congratulations.classList.add('main__congratulations--show');
+}
+
+
 add.addEventListener('click', () => {
     if (count >= 99) {
         count == 99;
@@ -58,10 +65,10 @@ add.addEventListener('click', () => {
     }
     if (count == 10) {
         const shake = document.querySelector('.main__image');
-        const congratulations = document.querySelector('.main__congratulations--js');
         shake.classList.add('main__image--shake')
         congratulations.classList.add('main__congratulations--show');
     }
+
 
 })
 
@@ -79,7 +86,6 @@ remove.addEventListener('click', () => {
             water.classList.remove('water-animation-remove');
             water.classList.add('water-animation-disappear')
         } else {
-
             let water = document.querySelector('.water--js');
             water.classList.remove('water-animation-disappear')
             water.classList.remove('water-animation-add');
