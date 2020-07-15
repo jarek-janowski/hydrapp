@@ -33,6 +33,12 @@ body {
   top: 0;
   left: 0;
 
+  @media(min-width: 960px) {
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
 
   &__sound {
     background: url(../assets/img/volume_off.svg);
