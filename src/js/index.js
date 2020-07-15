@@ -17,11 +17,29 @@ const counter = document.querySelector('.counter--js');
 const pl = document.querySelector('.navigation__language--poland-js');
 const en = document.querySelector('.navigation__language--us-js');
 const congratulations = document.querySelector('.main__congratulations--js');
+const waterSound = document.querySelector('.water-sound--js');
+const mute = document.querySelector('.mute--js');
 
 const localStorageValue = localStorage.getItem(key);
 const localStorageAdd = localStorage.getItem('add');
 const localStorageRemove = localStorage.getItem('remove');
 const localStorageCongratulations = localStorage.getItem('congratulations');
+
+let noSound = waterSound.muted = true;
+
+mute.addEventListener('click', () => {
+
+    if (noSound) {
+
+        waterSound.muted = false;
+        noSound = false;
+        mute.classList.add('navigation__sound__unmute');
+    } else {
+        mute.classList.remove('navigation__sound__unmute');
+        waterSound.muted = true;
+        noSound = true;
+    }
+})
 
 
 en.addEventListener('click', () => {
@@ -84,6 +102,8 @@ add.addEventListener('click', () => {
         water.classList.add('water-animation-add');
         let newone = water.cloneNode(true);
         water.parentNode.replaceChild(newone, water);
+        waterSound.currentTime = 0;
+        waterSound.play();
     }
     if (count == 10) {
         const shake = document.querySelector('.main__image');
@@ -110,6 +130,8 @@ remove.addEventListener('click', () => {
             water.classList.add('water-animation-remove');
             let newone = water.cloneNode(true);
             water.parentNode.replaceChild(newone, water);
+            waterSound.pause();
+            waterSound.currentTime = 0;
         }
     }
     if (count < 10) {

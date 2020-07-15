@@ -30,12 +30,27 @@ body {
   position: absolute;
   width: 100%;
   height: 32px;
-  background: #325486;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+  &__sound {
+    background: url(../assets/img/volume_off.svg);
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    border: none;
+    font-size: 0;
+    position: absolute;
+    top: 20%;
+    left: 8px;
+    outline: none;
+    transition: .3s;
+
+    &__unmute {
+      background: url(../assets/img/volume_up.svg);
+    }
+  }
 
   &__language {
     position: absolute;
