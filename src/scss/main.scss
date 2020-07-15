@@ -46,10 +46,11 @@ body {
     width: 18px;
     height: 18px;
     border: none;
+    cursor: pointer;
     font-size: 0;
     position: absolute;
-    top: 20%;
-    left: 8px;
+    top: 50%;
+    left: 16px;
     outline: none;
     transition: .3s;
 
@@ -60,7 +61,7 @@ body {
 
   &__language {
     position: absolute;
-    top: 1%;
+    top: 35%;
     right: 8px;
     width: 24px;
     height: 24px;
@@ -87,7 +88,7 @@ body {
     position: absolute;
     width: 24px;
     height: 24px;
-    top: 1%;
+    top: 35%;
     right: 8px;
     z-index: 1;
 
